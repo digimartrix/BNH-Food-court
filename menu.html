@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Menu — BNH Food Court | Biryani, Chinese, Shawarma, Meals</title>
+    <meta
+      name="keywords"
+      content="BNH Food Court, best biryani in Coimbatore, halal restaurant near JCT College, Pichanur food court, authentic halal food Coimbatore, shawarma Pichanur, multi-cuisine restaurant Coimbatore, order biryani online, best grilled chicken Coimbatore, JCT College restaurants, non-veg meals near me, best chinese food Pichanur, halal food delivery Coimbatore"
+    />
+    <meta
+      name="description"
+      content="Explore the full menu of BNH Food Court. Chicken Biryani, Shawarma, Alfaham, Chinese, Fish Fry, Meals, Tiffin & more. Halal Certified."
+    />
+    <meta
+      property="og:title"
+      content="Menu — BNH Food Court | Halal Multi-Cuisine"
+    />
+    <meta
+      property="og:description"
+      content="Explore the full authentic menu of BNH Food Court near JCT College, Pichanur, Coimbatore. Order Halal Biryani, Shawarma, Chinese & Grills."
+    />
+    <meta property="og:image" content="images/chicken-biryani.png" />
+    <meta property="og:type" content="restaurant.menu" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Menu — BNH Food Court | Coimbatore"
+    />
+    <meta
+      name="twitter:description"
+      content="Authentic Halal Biryani, Shawarma, Chinese, Grills, Tiffin & Meals. Free local delivery."
+    />
+    <meta name="twitter:image" content="images/chicken-biryani.png" />
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav scrolled" id="mainNav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"
+          ><img src="images/bnh-logo.png" alt="BNH Food Court" class="nav-chef" />
+          <div class="nav-brand">
+            <div class="nav-brand-top">
+              <span class="brand-name">BNH</span
+              ><img
+                src="images/halal-badge.png"
+                alt="Halal"
+                class="halal-sup"
+              />
+            </div>
+            <span class="nav-brand-sub">Food Court</span>
+          </div></a
+        >
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html">Order Online</a></li>
+        </ul>
+        <button class="hamburger" onclick="openMenu()" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" onclick="closeMenu()" aria-label="Close Menu">✕</button>
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="menu.html" onclick="closeMenu()">Menu</a>
+      <a href="contact.html" onclick="closeMenu()">Contact</a>
+      <a href="order.html" onclick="closeMenu()">Order Online</a>
+    </div>
+
+    <!-- MENU HERO -->
+    <section class="menu-hero">
+      <div class="container">
+        <div class="live-status-container">
+          <div class="live-status">
+            <span class="status-dot open"></span>
+            <span class="status-text">Open Now <span class="status-time">(11 AM – 11 PM)</span></span>
+          </div>
+        </div>
+        <div class="section-title">
+          <h2>Our Menu</h2>
+          <p>Authentic flavours, crafted with passion and love</p>
+          <div class="line"></div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="menu-search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="dishSearch"
+            class="menu-search-input"
+            placeholder="Search dishes (e.g. Biryani, Shawarma, Alfaham...)"
+            oninput="filterSearch(this.value)"
+          />
+        </div>
+
+        <!-- DIETARY FILTER TABS -->
+        <div class="diet-tabs">
+          <button class="diet-tab active" onclick="filterDiet('all', this)">
+            All Items
+          </button>
+          <button class="diet-tab" onclick="filterDiet('veg', this)">
+            <span class="dot dot-veg"></span> Pure Veg
+          </button>
+          <button class="diet-tab" onclick="filterDiet('nonveg', this)">
+            <span class="dot dot-nonveg"></span> Non-Veg
+          </button>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" onclick="filterMenu('all', this)">
+            All Cuisines
+          </button>
+          <button class="filter-tab" onclick="filterMenu('biryani', this)">
+            Biryani
+          </button>
+          <button class="filter-tab" onclick="filterMenu('combo', this)">
+            Combos
+          </button>
+          <button class="filter-tab" onclick="filterMenu('chinese', this)">
+            Chinese &amp; Fish
+          </button>
+          <button class="filter-tab" onclick="filterMenu('grill', this)">
+            Grilled &amp; Alfaham
+          </button>
+          <button class="filter-tab" onclick="filterMenu('manthi', this)">
+            Manthi Biryani
+          </button>
+          <button class="filter-tab" onclick="filterMenu('shawarma', this)">
+            Shawarma
+          </button>
+          <button class="filter-tab" onclick="filterMenu('tiffin', this)">
+            Tiffin
+          </button>
+          <button class="filter-tab" onclick="filterMenu('meals', this)">
+            Meals
+          </button>
+          <button class="filter-tab" onclick="filterMenu('veg', this)">
+            Veg Specials
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU GRID -->
+    <section class="section" style="padding-top: 10px">
+      <div class="container">
+        <div class="menu-grid" id="menuGrid">
+          <!-- BIRYANI -->
+          <div class="menu-card reveal" data-cat="biryani" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/chicken-biryani.png"
+                alt="1 Kg Chicken Biryani"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>1 Kg Chicken Biryani</h3>
+              <p class="desc">
+                Aromatic basmati rice layered with tender chicken, spices &amp;
+                fried onions. Serves 3-4.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹230</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('1 Kg Chicken Biryani', 230, 'b1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="biryani" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/chicken-biryani.png"
+                alt="1/2 Kg Chicken Biryani"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>1/2 Kg Chicken Biryani</h3>
+              <p class="desc">
+                Perfect single serving of our signature chicken biryani with
+                flavourful raita.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('1/2 Kg Chicken Biryani', 120, 'b2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="biryani" data-diet="veg">
+            <div class="menu-card-img">
+              <img
+                src="images/veg-biryani.png"
+                alt="Veg Biryani"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Veg Biryani</h3>
+              <p class="desc">
+                Fragrant basmati rice with farm-fresh mixed vegetables, herbs and aromatic
+                spices.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹100</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Veg Biryani', 100, 'b3')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="biryani" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/chicken-rice.png"
+                alt="Chicken Rice"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken Rice</h3>
+              <p class="desc">
+                Delicious rice loaded with tender chicken pieces, an absolute treat.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹130</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken Rice', 130, 'b6')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMBOS -->
+          <div class="menu-card reveal" data-cat="combo" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/chicken-biryani.png"
+                alt="Biryani + Chilly Chicken Combo"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Biryani + Chilly Chicken Combo</h3>
+              <p class="desc">
+                1 Kg Chicken Biryani with FREE Chilly Chicken. Best value meal!
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹230</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Biryani + Chilly Chicken Combo', 230, 'cb1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="combo" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/ghee-rice.png"
+                alt="Ghee Rice Combo"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Ghee Rice + Chicken Pollichathu</h3>
+              <p class="desc">
+                Golden aromatic ghee rice topped with Kerala-style spicy fried chicken.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹140</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Ghee Rice + Pollichathu', 140, 'b4')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- CHINESE -->
+          <div class="menu-card reveal" data-cat="chinese" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/chilli-chicken.png"
+                alt="Chilly Chicken"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chilly Chicken</h3>
+              <p class="desc">
+                Crispy chicken tossed in spicy Indo-Chinese sauce with peppers
+                &amp; onions.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chilly Chicken', 120, 'c1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="chinese" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/fish-fry.png" alt="Fish Fry" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Fish Fry</h3>
+              <p class="desc">
+                Golden crispy fried fish marinated in special South-Indian masala.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹130</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Fish Fry', 130, 'c5')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="chinese" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/chicken-noodles.png" alt="Chicken Noodles" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken Noodles</h3>
+              <p class="desc">
+                Wok-tossed noodles with chicken strips, fresh veggies, and savory sauces.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹110</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken Noodles', 110, 'c2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="chinese" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/egg-fried-rice.png" alt="Egg Fried Rice" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Egg Fried Rice</h3>
+              <p class="desc">
+                Classic golden fried rice with egg, spring onions, and delicate seasoning.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹90</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Egg Fried Rice', 90, 'c3')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="chinese" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/schezwan-fried-rice.png" alt="Schezwan Fried Rice" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Schezwan Fried Rice</h3>
+              <p class="desc">
+                Spicy, vibrant wok-tossed rice with a bold schezwan kick and aromatics.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹110</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Schezwan Fried Rice', 110, 'c4')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- GRILL -->
+          <div class="menu-card reveal" data-cat="grill" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/alfaham.png" alt="Alfaham" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Alfaham Chicken</h3>
+              <p class="desc">
+                Charcoal-grilled chicken leg infused with authentic Arabic spices. Tender and smoky.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹150</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Alfaham Chicken', 150, 'g1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="grill" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/alfaham.png"
+                alt="Grilled Chicken"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Grilled Chicken Full</h3>
+              <p class="desc">
+                Whole chicken grilled to juicy perfection with our signature spice rub.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹350</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Grilled Chicken Full', 350, 'g5')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="grill" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/chicken-roast.png" alt="Chicken Roast" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken Roast</h3>
+              <p class="desc">
+                Rich, dark, and perfectly roasted whole chicken with curry leaves and spices.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹200</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken Roast', 200, 'g2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="grill" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/pepper-chicken.png" alt="Pepper Chicken" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Pepper Chicken</h3>
+              <p class="desc">
+                Dry roasted chicken pieces beautifully coated in fiery crushed black pepper masala.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹130</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Pepper Chicken', 130, 'g3')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="grill" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/chicken-65.png" alt="Chicken 65" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken 65</h3>
+              <p class="desc">
+                Crispy, spicy, deep-fried chicken bites infused with curry leaves and lemon.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken 65', 120, 'g4')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MANTHI -->
+          <div class="menu-card reveal" data-cat="manthi" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/manthi-biryani.png"
+                alt="Manthi Biryani"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken Manthi</h3>
+              <p class="desc">
+                Traditional Arabian manthi with long-grain saffron rice and slow-cooked chicken.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹180</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken Manthi', 180, 'b5')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SHAWARMA -->
+          <div class="menu-card reveal" data-cat="shawarma" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/shawarma.png"
+                alt="Chicken Shawarma"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Chicken Shawarma</h3>
+              <p class="desc">
+                Juicy spiced chicken wrapped in fresh roll with garlic toum sauce &amp; pickles.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹80</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Chicken Shawarma', 80, 's1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="shawarma" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img
+                src="images/shawarma.png"
+                alt="Shawarma Plate"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Shawarma Plate</h3>
+              <p class="desc">
+                Shawarma meat served open with fries, fresh salad and extra house garlic dip.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Shawarma Plate', 120, 's2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TIFFIN -->
+          <div class="menu-card reveal" data-cat="tiffin" data-diet="veg">
+            <div class="menu-card-img">
+              <img src="images/dosa.png" alt="Masala Dosa" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Masala Dosa</h3>
+              <p class="desc">
+                Crispy golden crepe filled with spiced potato masala. Served with
+                chutney &amp; sambar.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹60</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Masala Dosa', 60, 't1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="tiffin" data-diet="veg">
+            <div class="menu-card-img">
+              <img src="images/dosa.png" alt="Plain Dosa" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Plain Dosa</h3>
+              <p class="desc">
+                Classic crispy dosa served with freshly ground coconut chutney and hot sambar.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹40</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Plain Dosa', 40, 't5')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="tiffin" data-diet="veg">
+            <div class="menu-card-img">
+              <img src="images/roast.png" alt="Roast Dosa" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Roast Dosa</h3>
+              <p class="desc">
+                Crispy golden roast dosa served with coconut chutney and piping hot sambar.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹50</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Roast Dosa', 50, 't4')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="tiffin" data-diet="veg">
+            <div class="menu-card-img">
+              <img src="images/parotta.png" alt="Parotta" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Parotta (2 Nos)</h3>
+              <p class="desc">
+                Soft, flaky, layered flatbread that perfectly pairs with your favourite curry.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹50</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Parotta (2 Nos)', 50, 't2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="tiffin" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/kothu-parotta.png" alt="Kothu Parotta" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Kothu Parotta</h3>
+              <p class="desc">
+                Shredded parotta tossed on a sizzling tawa with spices, egg, and chicken salna.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹100</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Kothu Parotta', 100, 't3')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEALS -->
+          <div class="menu-card reveal" data-cat="meals" data-diet="veg">
+            <div class="menu-card-img">
+              <img src="images/meals.png" alt="Veg Meals" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Veg Meals</h3>
+              <p class="desc">
+                Traditional South Indian thali with rice, sambar, rasam, kootu,
+                curd &amp; papad.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹80</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Veg Meals', 80, 'm1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="meals" data-diet="nonveg">
+            <div class="menu-card-img">
+              <img src="images/meals.png" alt="Non-Veg Meals" loading="lazy" />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-nonveg">Non-Veg</span>
+              <h3>Non-Veg Meals</h3>
+              <p class="desc">
+                Full authentic meals with rice, spicy chicken curry, rasam, sides and accompaniments.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Non-Veg Meals', 120, 'm2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- VEG -->
+          <div class="menu-card reveal" data-cat="veg" data-diet="veg">
+            <div class="menu-card-img">
+              <img
+                src="images/veg-biryani.png"
+                alt="Veg Fried Rice"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Veg Fried Rice</h3>
+              <p class="desc">
+                Wok-tossed basmati rice with crunchy garden vegetables and gentle Indo-Chinese seasoning.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹80</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Veg Fried Rice', 80, 'v1')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-card reveal" data-cat="veg" data-diet="veg">
+            <div class="menu-card-img">
+              <img
+                src="images/veg-biryani.png"
+                alt="Paneer Biryani"
+                loading="lazy"
+              />
+            </div>
+            <div class="menu-card-body">
+              <span class="badge-veg">Veg</span>
+              <h3>Paneer Biryani</h3>
+              <p class="desc">
+                Rich fragrant biryani with tender paneer cubes, whole herbs, and caramelized onions.
+              </p>
+              <div class="menu-card-footer">
+                <span class="price">₹120</span>
+                <button
+                  class="btn btn-gold btn-sm"
+                  onclick="addToCart('Paneer Biryani', 120, 'v2')"
+                >
+                  + Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="offer-banner" style="padding: 40px 20px">
+      <h3>Ready to Order?</h3>
+      <p style="margin-bottom: 20px">
+        Get your favourite food delivered fast to your doorstep!
+      </p>
+      <a
+        href="order.html"
+        class="btn btn-gold"
+        style="background: #fff; color: var(--red)"
+        >Go to Checkout</a
+      >
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <img
+            src="images/bnh-logo.png"
+            alt="BNH Food Court"
+            class="footer-logo"
+          />
+          <div class="footer-brand">BNH Food Court</div>
+          <p class="footer-tagline">
+            Authentic Halal Multi-Cuisine Delights — Biryani, Shawarma, Grills,
+            Chinese & More
+          </p>
+          <div class="footer-social">
+            <a href="tel:+919074838362" title="Call"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"
+                /></svg
+            ></a>
+            <a
+              href="https://wa.me/919074838362"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                /></svg
+            ></a>
+            <a
+              href="https://maps.google.com/?q=JCT+College+Pichanur+Coimbatore"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Location"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mid">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <h4>Quick Links</h4>
+              <a href="index.html">Home</a><a href="menu.html">Menu</a
+              ><a href="contact.html">Contact</a
+              ><a href="order.html">Order Online</a>
+            </div>
+            <div class="footer-col">
+              <h4>Hours</h4>
+              <p>Mon – Sun</p>
+              <p style="color: var(--gold); font-weight: 600">
+                11:00 AM – 11:00 PM
+              </p>
+            </div>
+            <div class="footer-col">
+              <h4>Contact</h4>
+              <a href="tel:+919074838362">90748 38362</a
+              ><a href="tel:+918606453386">86064 53386</a
+              ><a href="tel:+917907519535">79075 19535</a>
+            </div>
+            <div class="footer-col">
+              <h4>Certified</h4>
+              <img
+                src="images/halal-badge.png"
+                alt="Halal"
+                style="
+                  height: 45px;
+                  filter: drop-shadow(0 0 6px rgba(15, 157, 88, 0.3));
+                "
+              />
+              <p style="margin-top: 8px">100% Halal Certified</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">© 2026 BNH Food Court. All Rights Reserved.</div>
+      </div>
+      <div class="footer-designer">
+        <a
+          href="https://digimartrix.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="designer-badge"
+        >
+          <span>Designed by</span>
+          <div class="designer-pill">
+            <span class="d-blue">DIGI</span><span class="d-red">MARTRIX</span>
+            <div class="designer-logo">
+              <img
+                src="images/digimart-logo.png"
+                alt="Digimartrix"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </footer>
+
+    <!-- MOBILE BAR -->
+    <div class="mobile-bar">
+      <div class="mobile-bar-inner">
+        <a href="tel:+919074838362"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"
+            /></svg
+          >Call</a
+        >
+        <a href="https://wa.me/919074838362" target="_blank" rel="noopener noreferrer"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+            /></svg
+          >WhatsApp</a
+        >
+        <a
+          href="https://maps.google.com/?q=JCT+College+Pichanur+Coimbatore"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"
+            /></svg
+          >Directions</a
+        >
+        <a href="order.html"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+            /></svg
+          >Order</a
+        >
+      </div>
+    </div>
+
+    <!-- FLOATING CART -->
+    <a href="order.html" class="floating-cart" id="floatingCart" title="View Cart" aria-label="View Cart">
+      🛒
+      <span class="badge" id="floatCartCount">0</span>
+    </a>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Order Online — BNH Food Court | WhatsApp Delivery</title>
+    <meta
+      name="keywords"
+      content="BNH Food Court, best biryani in Coimbatore, halal restaurant near JCT College, Pichanur food court, authentic halal food Coimbatore, shawarma Pichanur, multi-cuisine restaurant Coimbatore, order biryani online, best grilled chicken Coimbatore, JCT College restaurants, non-veg meals near me, best chinese food Pichanur, halal food delivery Coimbatore"
+    />
+    <meta
+      name="description"
+      content="Order food online from BNH Food Court. Add items to cart and checkout via WhatsApp. Free delivery near JCT College, Pichanur, Coimbatore."
+    />
+    <meta
+      property="og:title"
+      content="Order Online — BNH Food Court | Quick WhatsApp Delivery"
+    />
+    <meta
+      property="og:description"
+      content="Order Halal Biryani, Shawarma, Chinese & Grills online with free local delivery near JCT College, Pichanur, Coimbatore."
+    />
+    <meta property="og:image" content="images/chicken-biryani.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Order Online — BNH Food Court"
+    />
+    <meta
+      name="twitter:description"
+      content="Select delicious Halal meals, add to cart and checkout instantly via WhatsApp."
+    />
+    <meta name="twitter:image" content="images/chicken-biryani.png" />
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav scrolled" id="mainNav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo"
+          ><img src="images/bnh-logo.png" alt="BNH Food Court" class="nav-chef" />
+          <div class="nav-brand">
+            <div class="nav-brand-top">
+              <span class="brand-name">BNH</span
+              ><img
+                src="images/halal-badge.png"
+                alt="Halal"
+                class="halal-sup"
+              />
+            </div>
+            <span class="nav-brand-sub">Food Court</span>
+          </div></a
+        >
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="order.html" class="active">Order Online</a></li>
+        </ul>
+        <button class="hamburger" onclick="openMenu()" aria-label="Open Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" onclick="closeMenu()" aria-label="Close Menu">✕</button>
+      <a href="index.html" onclick="closeMenu()">Home</a>
+      <a href="menu.html" onclick="closeMenu()">Menu</a>
+      <a href="contact.html" onclick="closeMenu()">Contact</a>
+      <a href="order.html" onclick="closeMenu()">Order Online</a>
+    </div>
+
+    <!-- ORDER HERO -->
+    <section class="menu-hero">
+      <div class="container">
+        <div class="live-status-container">
+          <div class="live-status">
+            <span class="status-dot open"></span>
+            <span class="status-text">Open Now <span class="status-time">(11 AM – 11 PM)</span></span>
+          </div>
+        </div>
+        <div class="section-title">
+          <h2>Order Online</h2>
+          <p>Select items, customize quantities &amp; checkout instantly via WhatsApp</p>
+          <div class="line"></div>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="menu-search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="dishSearch"
+            class="menu-search-input"
+            placeholder="Search dishes to add (e.g. Biryani, Shawarma, Alfaham...)"
+            oninput="filterSearch(this.value)"
+          />
+        </div>
+
+        <!-- DIETARY FILTER TABS -->
+        <div class="diet-tabs">
+          <button class="diet-tab active" onclick="filterDiet('all', this)">
+            All Items
+          </button>
+          <button class="diet-tab" onclick="filterDiet('veg', this)">
+            <span class="dot dot-veg"></span> Pure Veg
+          </button>
+          <button class="diet-tab" onclick="filterDiet('nonveg', this)">
+            <span class="dot dot-nonveg"></span> Non-Veg
+          </button>
+        </div>
+
+        <!-- CATEGORY TABS -->
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" onclick="filterMenu('all', this)">All</button>
+          <button class="filter-tab" onclick="filterMenu('biryani', this)">Biryani</button>
+          <button class="filter-tab" onclick="filterMenu('combo', this)">Combos</button>
+          <button class="filter-tab" onclick="filterMenu('chinese', this)">Chinese</button>
+          <button class="filter-tab" onclick="filterMenu('grill', this)">Grill</button>
+          <button class="filter-tab" onclick="filterMenu('manthi', this)">Manthi</button>
+          <button class="filter-tab" onclick="filterMenu('shawarma', this)">Shawarma</button>
+          <button class="filter-tab" onclick="filterMenu('tiffin', this)">Tiffin</button>
+          <button class="filter-tab" onclick="filterMenu('meals', this)">Meals</button>
+          <button class="filter-tab" onclick="filterMenu('veg', this)">Veg Specials</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER SECTION -->
+    <section class="section" style="padding-top: 10px">
+      <div class="container">
+        <div class="order-grid">
+          <!-- LEFT: ITEMS -->
+          <div>
+            <div class="order-items" id="menuGrid">
+
+              <!-- BIRYANI -->
+              <div class="order-card reveal" data-cat="biryani" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-biryani.png" alt="1 Kg Chicken Biryani" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>1 Kg Chicken Biryani</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹230</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b1">0</span>
+                      <button class="qty-btn" onclick="addToCart('1 Kg Chicken Biryani',230,'b1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="biryani" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-biryani.png" alt="1/2 Kg Chicken Biryani" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>1/2 Kg Chicken Biryani</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b2">0</span>
+                      <button class="qty-btn" onclick="addToCart('1/2 Kg Chicken Biryani',120,'b2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="biryani" data-diet="veg">
+                <div class="order-card-img"><img src="images/veg-biryani.png" alt="Veg Biryani" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Veg Biryani</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹100</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b3',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b3">0</span>
+                      <button class="qty-btn" onclick="addToCart('Veg Biryani',100,'b3')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="biryani" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-rice.png" alt="Chicken Rice" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken Rice</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹130</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b6',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b6">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken Rice',130,'b6')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- COMBOS -->
+              <div class="order-card reveal" data-cat="combo" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-biryani.png" alt="Biryani + Chilly Chicken Combo" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Biryani + Chilly Chicken Combo</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹230</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('cb1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="cb1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Biryani + Chilly Chicken Combo',230,'cb1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="combo" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/ghee-rice.png" alt="Ghee Rice Pollichathu" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Ghee Rice + Pollichathu</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹140</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b4',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b4">0</span>
+                      <button class="qty-btn" onclick="addToCart('Ghee Rice + Pollichathu',140,'b4')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MANTHI -->
+              <div class="order-card reveal" data-cat="manthi" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/manthi-biryani.png" alt="Chicken Manthi" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken Manthi</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹180</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('b5',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="b5">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken Manthi',180,'b5')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CHINESE -->
+              <div class="order-card reveal" data-cat="chinese" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chilli-chicken.png" alt="Chilly Chicken" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chilly Chicken</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('c1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="c1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chilly Chicken',120,'c1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="chinese" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-noodles.png" alt="Chicken Noodles" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken Noodles</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹110</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('c2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="c2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken Noodles',110,'c2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="chinese" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/egg-fried-rice.png" alt="Egg Fried Rice" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Egg Fried Rice</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹90</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('c3',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="c3">0</span>
+                      <button class="qty-btn" onclick="addToCart('Egg Fried Rice',90,'c3')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="chinese" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/schezwan-fried-rice.png" alt="Schezwan Fried Rice" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Schezwan Fried Rice</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹110</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('c4',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="c4">0</span>
+                      <button class="qty-btn" onclick="addToCart('Schezwan Fried Rice',110,'c4')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="chinese" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/fish-fry.png" alt="Fish Fry" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Fish Fry</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹130</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('c5',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="c5">0</span>
+                      <button class="qty-btn" onclick="addToCart('Fish Fry',130,'c5')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- GRILL -->
+              <div class="order-card reveal" data-cat="grill" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/alfaham.png" alt="Alfaham Chicken" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Alfaham Chicken</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹150</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('g1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="g1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Alfaham Chicken',150,'g1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="grill" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/alfaham.png" alt="Grilled Chicken Full" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Grilled Chicken Full</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹350</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('g5',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="g5">0</span>
+                      <button class="qty-btn" onclick="addToCart('Grilled Chicken Full',350,'g5')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="grill" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-roast.png" alt="Chicken Roast" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken Roast</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹200</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('g2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="g2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken Roast',200,'g2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="grill" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/pepper-chicken.png" alt="Pepper Chicken" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Pepper Chicken</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹130</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('g3',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="g3">0</span>
+                      <button class="qty-btn" onclick="addToCart('Pepper Chicken',130,'g3')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="grill" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/chicken-65.png" alt="Chicken 65" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken 65</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('g4',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="g4">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken 65',120,'g4')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SHAWARMA -->
+              <div class="order-card reveal" data-cat="shawarma" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/shawarma.png" alt="Chicken Shawarma" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Chicken Shawarma</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹80</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('s1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="s1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Chicken Shawarma',80,'s1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="shawarma" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/shawarma.png" alt="Shawarma Plate" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Shawarma Plate</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('s2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="s2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Shawarma Plate',120,'s2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- TIFFIN -->
+              <div class="order-card reveal" data-cat="tiffin" data-diet="veg">
+                <div class="order-card-img"><img src="images/dosa.png" alt="Masala Dosa" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Masala Dosa</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹60</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('t1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="t1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Masala Dosa',60,'t1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="tiffin" data-diet="veg">
+                <div class="order-card-img"><img src="images/dosa.png" alt="Plain Dosa" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Plain Dosa</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹40</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('t5',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="t5">0</span>
+                      <button class="qty-btn" onclick="addToCart('Plain Dosa',40,'t5')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="tiffin" data-diet="veg">
+                <div class="order-card-img"><img src="images/roast.png" alt="Roast Dosa" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Roast Dosa</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹50</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('t4',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="t4">0</span>
+                      <button class="qty-btn" onclick="addToCart('Roast Dosa',50,'t4')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="tiffin" data-diet="veg">
+                <div class="order-card-img"><img src="images/parotta.png" alt="Parotta" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Parotta (2 Nos)</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹50</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('t2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="t2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Parotta (2 Nos)',50,'t2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="tiffin" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/kothu-parotta.png" alt="Kothu Parotta" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Kothu Parotta</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹100</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('t3',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="t3">0</span>
+                      <button class="qty-btn" onclick="addToCart('Kothu Parotta',100,'t3')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- MEALS -->
+              <div class="order-card reveal" data-cat="meals" data-diet="veg">
+                <div class="order-card-img"><img src="images/meals.png" alt="Veg Meals" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Veg Meals</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹80</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('m1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="m1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Veg Meals',80,'m1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="meals" data-diet="nonveg">
+                <div class="order-card-img"><img src="images/meals.png" alt="Non-Veg Meals" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-nonveg">Non-Veg</span>
+                  <h4>Non-Veg Meals</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('m2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="m2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Non-Veg Meals',120,'m2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- VEG SPECIALS -->
+              <div class="order-card reveal" data-cat="veg" data-diet="veg">
+                <div class="order-card-img"><img src="images/veg-biryani.png" alt="Veg Fried Rice" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Veg Fried Rice</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹80</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('v1',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="v1">0</span>
+                      <button class="qty-btn" onclick="addToCart('Veg Fried Rice',80,'v1')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="order-card reveal" data-cat="veg" data-diet="veg">
+                <div class="order-card-img"><img src="images/veg-biryani.png" alt="Paneer Biryani" loading="lazy"></div>
+                <div class="order-card-body">
+                  <span class="badge-veg">Veg</span>
+                  <h4>Paneer Biryani</h4>
+                  <div class="order-card-bottom">
+                    <div class="price">₹120</div>
+                    <div class="qty-control">
+                      <button class="qty-btn" onclick="changeQty('v2',-1)" aria-label="Decrease quantity">−</button>
+                      <span class="qty-val" data-qty-id="v2">0</span>
+                      <button class="qty-btn" onclick="addToCart('Paneer Biryani',120,'v2')" aria-label="Increase quantity">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- RIGHT: CART PANEL -->
+          <div>
+            <div class="cart-panel" id="cartPanel">
+              <h3>Your Cart (<span id="cartCount">0</span>)</h3>
+              <div id="cartEmpty" class="cart-empty">
+                Your cart is empty.<br />Add items from the menu to start!
+              </div>
+              <div id="cartItems"></div>
+              <div id="cartSummary" style="display: none">
+                <div class="cart-total">
+                  <span>Total Amount</span>
+                  <span class="amount" id="cartTotal">₹0</span>
+                </div>
+
+                <!-- ORDER TYPE SELECTOR -->
+                <div style="margin-top: 10px">
+                  <label style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; display: block">Order Mode</label>
+                  <div class="order-type-toggle">
+                    <button type="button" class="order-type-btn active" onclick="setOrderType('Delivery', this)">
+                      🚚 Delivery
+                    </button>
+                    <button type="button" class="order-type-btn" onclick="setOrderType('Takeaway', this)">
+                      🥡 Takeaway / Pickup
+                    </button>
+                  </div>
+                </div>
+
+                <!-- CUSTOMER DETAILS -->
+                <div class="form-group">
+                  <label for="custName">Your Name</label>
+                  <input type="text" id="custName" placeholder="Enter your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="custPhone">Phone Number</label>
+                  <input
+                    type="tel"
+                    id="custPhone"
+                    placeholder="10-digit mobile number"
+                    maxlength="13"
+                    required
+                  />
+                </div>
+                <div class="form-group" id="addrGroup">
+                  <label for="custAddr">Delivery Address (Hostel / Room / Street)</label>
+                  <textarea
+                    id="custAddr"
+                    placeholder="Enter your room/building number, street or landmark near JCT College"
+                    style="min-height: 70px"
+                  ></textarea>
+                </div>
+
+                <!-- PAYMENT DISPLAY -->
+                <div class="form-group">
+                  <label>Payment Mode</label>
+                  <div id="payDisplay" style="padding: 10px 14px; background: var(--black); border: 1px solid var(--border); border-radius: 12px; font-size: 0.88rem; color: var(--gold); font-weight: 600;">
+                    💵 Cash on Delivery
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn-green"
+                  style="width: 100%; justify-content: center; margin-top: 8px"
+                  onclick="whatsappCheckout()"
+                >
+                  Confirm &amp; Send on WhatsApp ➔
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <img
+            src="images/bnh-logo.png"
+            alt="BNH Food Court"
+            class="footer-logo"
+          />
+          <div class="footer-brand">BNH Food Court</div>
+          <p class="footer-tagline">
+            Authentic Halal Multi-Cuisine Delights — Biryani, Shawarma, Grills,
+            Chinese & More
+          </p>
+          <div class="footer-social">
+            <a href="tel:+919074838362" title="Call"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"
+                /></svg
+            ></a>
+            <a
+              href="https://wa.me/919074838362"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                />
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+                /></svg
+            ></a>
+            <a
+              href="https://maps.google.com/?q=JCT+College+Pichanur+Coimbatore"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Location"
+              ><svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-mid">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-col">
+              <h4>Quick Links</h4>
+              <a href="index.html">Home</a><a href="menu.html">Menu</a
+              ><a href="contact.html">Contact</a
+              ><a href="order.html">Order Online</a>
+            </div>
+            <div class="footer-col">
+              <h4>Hours</h4>
+              <p>Mon – Sun</p>
+              <p style="color: var(--gold); font-weight: 600">
+                11:00 AM – 11:00 PM
+              </p>
+            </div>
+            <div class="footer-col">
+              <h4>Contact</h4>
+              <a href="tel:+919074838362">90748 38362</a
+              ><a href="tel:+918606453386">86064 53386</a
+              ><a href="tel:+917907519535">79075 19535</a>
+            </div>
+            <div class="footer-col">
+              <h4>Certified</h4>
+              <img
+                src="images/halal-badge.png"
+                alt="Halal"
+                style="
+                  height: 45px;
+                  filter: drop-shadow(0 0 6px rgba(15, 157, 88, 0.3));
+                "
+              />
+              <p style="margin-top: 8px">100% Halal Certified</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">© 2026 BNH Food Court. All Rights Reserved.</div>
+      </div>
+      <div class="footer-designer">
+        <a
+          href="https://digimartrix.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="designer-badge"
+        >
+          <span>Designed by</span>
+          <div class="designer-pill">
+            <span class="d-blue">DIGI</span><span class="d-red">MARTRIX</span>
+            <div class="designer-logo">
+              <img
+                src="images/digimart-logo.png"
+                alt="Digimartrix"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+    </footer>
+
+    <!-- MOBILE BAR -->
+    <div class="mobile-bar">
+      <div class="mobile-bar-inner">
+        <a href="tel:+919074838362"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"
+            /></svg
+          >Call</a
+        >
+        <a href="https://wa.me/919074838362" target="_blank" rel="noopener noreferrer"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+            />
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"
+            /></svg
+          >WhatsApp</a
+        >
+        <a
+          href="https://maps.google.com/?q=JCT+College+Pichanur+Coimbatore"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"
+            /></svg
+          >Directions</a
+        >
+        <a href="order.html" class="active"
+          ><svg class="mb-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+            /></svg
+          >Order</a
+        >
+      </div>
+    </div>
+
+    <!-- FLOATING CART (MOBILE) -->
+    <a href="#cartPanel" class="floating-cart" id="floatingCart" title="View Cart" aria-label="View Cart">
+      🛒
+      <span class="badge" id="floatCartCount">0</span>
+    </a>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
